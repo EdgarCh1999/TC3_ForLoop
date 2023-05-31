@@ -1,0 +1,14 @@
+#Para saber el tamaaño del archivo 
+wc -l ../data/Marra2014_data.fasta
+#Para copiar 
+cp ../data/Marra2014_data.fasta mi_archivo.fasta
+#Para saber cuantos contigs se clasifican como isogrupo00036
+grep -c isogrup00036 mi_archivo.fasta
+#Para remplazar el delimitador original 
+cat mi_archivo.fasta | tr -s ' ' ',' | head -n 3
+#Para guardar los cambios 
+cat mi_archivo.fasta | tr -s ' ' ',' > mi_archivo.tmp
+#Para determinar los isogupos únicos
+grep '>' my_file.fasta | cut -d ',' -f 4 | sort | uniq | wc -l
+#Para saber que contig tiene el mayor número de lectura 
+grep '>' my_file.fasta | cut -d ',' -f 1,3 | head -n 3
